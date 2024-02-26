@@ -1,10 +1,9 @@
 <?php
 require_once __DIR__.'./product.php';
 
-class toys extends product  {
+class Pets_Bed extends product {
         public $materials = [];
-        public $description;
-        public $pet_size;
+        public $size;
 
         public function __construct(
             string $name,
@@ -14,9 +13,7 @@ class toys extends product  {
             string $img,
             $category,
             string $materials,
-            string $description,
-            string $pet_size,
-
+            string $size,
         )
         {
             parent::__construct(
@@ -26,13 +23,8 @@ class toys extends product  {
                 $details,
                 $img,
                 $category,
-                $materials,
-                $description,
-                $pet_size,
             );
-            
             $this->materials = $materials;
-            $this->description = $description;
-            $this->pet_size = $pet_size;
+            $this->size = $size;
         }
     }

@@ -2,6 +2,7 @@
 require_once __DIR__.'./product.php';
 
 class food extends product {
+
         public $expirationDate;
         public $expired = false;
         public $composition;
@@ -14,7 +15,7 @@ class food extends product {
             string $price,
             string $details,
             string $img,
-            /* Categorie $category, */
+            $category,
             string $expirationDate,
             string $composition,
             string $allergies,
@@ -27,7 +28,7 @@ class food extends product {
                 $price,
                 $details,
                 $img,
-               /*  $category, */
+                $category,
             );
             $this->expirationDate = $expirationDate;
 
@@ -36,6 +37,12 @@ class food extends product {
             $this->composition = $composition;
             $this->allergies = $allergies;
             $this->weight = $weight;
+            if (is_int($weight)) {
+                $this->weight = $weight;
+            }
+            else {
+                throw new Exception('Is not a Int');
+            }
         }
 
         public function expiredFnc($expirationDate) {
